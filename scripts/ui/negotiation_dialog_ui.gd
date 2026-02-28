@@ -27,7 +27,7 @@ func open_negotiation(demon_data: Dictionary, player_stats: Dictionary, alignmen
 	_negotiation_system.setup(alignment_sys)
 	var chance := _negotiation_system.start_negotiation(demon_data, player_stats)
 	demon_name_label.text = demon_data.get("name", "Unknown Demon")
-	dialog_text.text = "A %s stands before you, weakened but defiant. Will you negotiate?" % demon_data.get("name", "demon")
+	dialog_text.text = "The %s stands before you, weakened but defiant. Will you negotiate?" % demon_data.get("name", "demon")
 	result_label.text = ""
 	_update_chance_label(chance)
 	_set_buttons_enabled(true)

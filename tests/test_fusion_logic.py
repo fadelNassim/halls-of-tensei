@@ -143,7 +143,7 @@ def test_fusion_cost():
     a = {"rank": 2}
     b = {"rank": 3}
     cost = fusion_cost(a, b)
-    assert cost == (2 + 3) * FUSION_COST_PER_RANK == 250, f"Cost mismatch: {cost}"
+    assert cost == 250, f"Cost mismatch: {cost}"
     print("PASS: test_fusion_cost")
 
 def test_recruit_chance_base():

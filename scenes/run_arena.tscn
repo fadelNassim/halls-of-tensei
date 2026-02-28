@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://run_arena"]
+[gd_scene load_steps=5 format=3 uid="uid://run_arena"]
 
 [ext_resource type="Script" path="res://scripts/run_arena.gd" id="1_arena"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
 [ext_resource type="PackedScene" path="res://scenes/demon_follower.tscn" id="3_demon"]
+[ext_resource type="PackedScene" path="res://scenes/ui/negotiation_dialog.tscn" id="4_neg_dialog"]
 
 [node name="RunArena" type="Node2D"]
 script = ExtResource("1_arena")
@@ -55,4 +56,4 @@ text = "Alignment: Neutral (0)"
 [node name="FusionPointsLabel" type="Label" parent="UI/HUD"]
 text = "Fusion Points: 0"
 
-[node name="NegotiationDialog" parent="UI" instance=ExtResource("2_player")]
+[node name="NegotiationDialog" parent="UI" instance=ExtResource("4_neg_dialog")]
