@@ -1,0 +1,13 @@
+# Godot 4 .gitignore
+.godot/
+export/
+*.import
+*.uid
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python build scripts
+__pycache__/
+*.pyc

@@ -1,0 +1,112 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, "copilot/**" ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-data:
+    name: Validate JSON Data
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate demons.json
+        run: python3 -c "
+import json, sys
+with open('data/demons.json') as f:
+    data = json.load(f)
+demons = data.get('demons', [])
+assert len(demons) == 10, f'Expected 10 demons, got {len(demons)}'
+required = ['id','name','alignment','mythology','rank','base_stats','skills','recruit_rules','flags']
+for d in demons:
+    for field in required:
+        assert field in d, f'Missing field {field} in demon {d.get(\"id\")}'
+    assert d['alignment'] in ['law','neutral','chaos'], f'Invalid alignment in {d[\"id\"]}'
+    assert d['rank'] >= 1, f'Rank < 1 in {d[\"id\"]}'
+    for stat in ['hp','atk','def','spd']:
+        assert stat in d['base_stats'], f'Missing stat {stat} in {d[\"id\"]}'
+    for flag in ['boss','recruitable_in_run','immutable']:
+        assert flag in d['flags'], f'Missing flag {flag} in {d[\"id\"]}'
+print('demons.json: OK -', len(demons), 'demons validated')
+"
+      - name: Validate fusion_recipes.json
+        run: python3 -c "
+import json
+with open('data/fusion_recipes.json') as f:
+    data = json.load(f)
+recipes = data.get('recipes', [])
+required = ['id','parent_a','parent_b','result_id','result']
+for r in recipes:
+    for field in required:
+        assert field in r, f'Missing field {field} in recipe {r.get(\"id\")}'
+print('fusion_recipes.json: OK -', len(recipes), 'recipes validated')
+"
+
+  lint-gdscript:
+    name: Lint GDScript (structure check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check GDScript files exist
+        run: |
+          files=(
+            "scripts/systems/fusion.gd"
+            "scripts/systems/negotiation.gd"
+            "scripts/systems/alignment.gd"
+            "scripts/systems/spawn_manager.gd"
+            "scripts/characters/player.gd"
+            "scripts/characters/demon_ai.gd"
+            "scripts/data/demon_data.gd"
+            "scripts/systems/game_state.gd"
+            "scripts/hub.gd"
+            "scripts/run_arena.gd"
+            "scripts/ui/negotiation_dialog_ui.gd"
+          )
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"
+              exit 1
+            fi
+            echo "OK: $f"
+          done
+
+  validate-project-structure:
+    name: Validate Project Structure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check required files
+        run: |
+          required=(
+            "project.godot"
+            "README.md"
+            "data/demons.json"
+            "data/fusion_recipes.json"
+            "scenes/hub.tscn"
+            "scenes/run_arena.tscn"
+            "scenes/player.tscn"
+            "scenes/demon_follower.tscn"
+            "scenes/ui/negotiation_dialog.tscn"
+            "design/gameplay_doc.md"
+            "design/balancing.csv"
+            "tests/test_fusion.gd"
+            "tests/test_negotiation.gd"
+            "tests/test_data_load.gd"
+          )
+          for f in "${required[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "MISSING: $f"
+              exit 1
+            fi
+            echo "OK: $f"
+          done
+
+  validate-fusion-logic:
+    name: Validate Fusion Logic (Python)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run fusion logic tests
+        run: python3 tests/test_fusion_logic.py

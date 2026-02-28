@@ -1,0 +1,33 @@
+demon_id,name,alignment,mythology,rank,hp,atk,def,spd,base_recruit_chance,alignment_bias,fusion_cost,notes
+oni_yokai,Oni,chaos,japanese,2,120,24,12,10,0.45,-0.25,200,Strong early-game chaos melee
+kitsune_spirit,Kitsune,neutral,japanese,3,90,18,10,16,0.35,0.1,300,Fast neutral caster
+valkyrie_law,Valkyrie,law,norse,4,150,28,20,12,0.25,0.3,400,Tanky law fighter; hard to recruit
+succubus_chaos,Succubus,chaos,abrahamic,3,100,22,8,18,0.40,-0.2,300,Fast chaos skirmisher
+anubis_guide,Anubis,law,egyptian,5,180,32,25,11,0.15,0.4,500,Requires soul_offering item
+tengu_warrior,Tengu,neutral,japanese,2,100,20,14,14,0.50,0.05,200,Balanced neutral; easiest recruit
+cerberus_guardian,Cerberus,chaos,greek,4,200,30,18,13,0.20,-0.15,400,Requires bone_offering item
+banshee_wail,Banshee,chaos,celtic,1,60,14,6,12,0.60,-0.1,100,Weakest but most recruitable
+angel_guardian,Guardian Angel,law,abrahamic,3,130,20,22,10,0.30,0.35,300,High defense law unit
+naga_serpent,Naga,neutral,hindu,2,110,19,11,15,0.45,0.0,200,Balanced neutral; no alignment modifier
+
+# Fusion results (named recipes)
+result_id,name,alignment,mythology,rank,hp,atk,def,spd,parent_a,parent_b,fusion_cost,notes
+chaos_herald,Chaos Herald,chaos,mixed,5,220,40,18,14,oni_yokai,succubus_chaos,250,Named recipe result
+seraph_knight,Seraph Knight,law,mixed,6,280,45,38,11,valkyrie_law,angel_guardian,350,Named recipe result
+
+# Balancing targets (per wave)
+wave,enemy_count,avg_enemy_hp,avg_enemy_atk,recruit_window_seconds,notes
+1,3,80,12,15,Tutorial wave; low pressure
+2,5,100,16,12,Introduce negotiation
+3,7,120,20,10,Mid-game ramp
+4,9,150,24,8,High pressure; alignment choices matter
+5,11,180,28,6,Final wave; boss-tier enemies
+
+# Alignment shift targets (design goals)
+action,alignment_delta,notes
+recruit_law_demon,+alignment_bias*10,Positive shift per law recruit
+recruit_chaos_demon,alignment_bias*10,Negative shift (bias is negative for chaos)
+recruit_neutral_demon,alignment_bias*10,Minimal shift
+player_start,0,Starts neutral
+full_law_threshold,45,Unlocks law-exclusive fusions
+full_chaos_threshold,-45,Unlocks chaos-exclusive fusions

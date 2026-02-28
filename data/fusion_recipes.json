@@ -1,0 +1,46 @@
+{
+  "recipes": [
+    {
+      "id": "oni_succubus_fusion",
+      "parent_a": "oni_yokai",
+      "parent_b": "succubus_chaos",
+      "result_id": "chaos_herald",
+      "result": {
+        "id": "chaos_herald",
+        "name": "Chaos Herald",
+        "alignment": "chaos",
+        "mythology": "mixed",
+        "rank": 5,
+        "base_stats": { "hp": 220, "atk": 40, "def": 18, "spd": 14 },
+        "skills": ["club_smash", "allure", "chaos_surge"],
+        "flags": { "boss": false, "recruitable_in_run": false, "immutable": false }
+      }
+    },
+    {
+      "id": "valkyrie_angel_fusion",
+      "parent_a": "valkyrie_law",
+      "parent_b": "angel_guardian",
+      "result_id": "seraph_knight",
+      "result": {
+        "id": "seraph_knight",
+        "name": "Seraph Knight",
+        "alignment": "law",
+        "mythology": "mixed",
+        "rank": 6,
+        "base_stats": { "hp": 280, "atk": 45, "def": 38, "spd": 11 },
+        "skills": ["divine_shield", "holy_strike", "sealing_chant"],
+        "flags": { "boss": false, "recruitable_in_run": false, "immutable": false }
+      }
+    }
+  ],
+  "alignment_rules": {
+    "law+law": "law",
+    "chaos+chaos": "chaos",
+    "neutral+neutral": "neutral",
+    "law+chaos": "neutral",
+    "law+neutral": "law",
+    "chaos+neutral": "chaos"
+  },
+  "rank_formula": "max(rank_a, rank_b) + 1",
+  "fusion_point_cost_per_rank": 50
+}
