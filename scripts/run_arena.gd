@@ -48,12 +48,12 @@ func _assign_random_demon_data() -> void:
 	var enemies := get_tree().get_nodes_in_group("enemies")
 	for enemy in enemies:
 		if enemy.has_method("get_demon_data") and _demon_data_list.size() > 0:
-			var random_demon: DemonData = _demon_data_list[randi() % _demon_data_list.size()]
+			var random_demon: DemonData = _demon_data_list[randi_range(0, _demon_data_list.size() - 1)]
 			if enemy.has_method("set") and "demon_data" in enemy:
 				enemy.demon_data = random_demon.to_dict()
 
 func _process(_delta: float) -> void:
-	if Input.is_action_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
 		_try_negotiate()
 
 func _try_negotiate() -> void:

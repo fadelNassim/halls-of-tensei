@@ -60,9 +60,9 @@ func _refresh_ui() -> void:
 
 func _update_alignment_label() -> void:
 	var label := "Neutral"
-	if _alignment_value >= 45:
+	if _alignment_value >= AlignmentSystem.LAW_THRESHOLD:
 		label = "Law"
-	elif _alignment_value <= -45:
+	elif _alignment_value <= AlignmentSystem.CHAOS_THRESHOLD:
 		label = "Chaos"
 	alignment_label.text = "Alignment: %s (%.0f)" % [label, _alignment_value]
 

@@ -57,7 +57,7 @@ func _spawn_enemy() -> void:
 
 func _get_spawn_position() -> Vector2:
 	if _spawn_point_nodes.size() > 0:
-		var sp := _spawn_point_nodes[randi() % _spawn_point_nodes.size()]
+		var sp := _spawn_point_nodes[randi_range(0, _spawn_point_nodes.size() - 1)]
 		if "global_position" in sp:
 			return sp.global_position
 	return Vector2(randf_range(-200, 200), randf_range(-200, 200))

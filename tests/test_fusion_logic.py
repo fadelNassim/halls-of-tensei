@@ -151,7 +151,7 @@ def test_recruit_chance_base():
     oni = next(d for d in demons if d["id"] == "oni_yokai")
     chance = recruit_chance(oni, 5, 0.0)
     # base 0.45 + 5*0.01 = 0.50, alignment_bias -0.25 with neutral player vs chaos demon:
-    # (1 - abs(0 - (-1))) * -0.25 = 0 * -0.25 = 0
+    # (1 - abs(0 - (-1))) * -0.25 = (1 - 1) * -0.25 = 0
     assert 0.49 <= chance <= 0.51, f"Expected ~0.50, got {chance}"
     print("PASS: test_recruit_chance_base")
 
