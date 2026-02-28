@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://player_scene"]
+
+[ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_player"]
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_player")
+max_hp = 100
+attack_damage = 15
+charisma = 8
+strength = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = CapsuleShape2D.new()
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.2, 0.6, 1.0, 1.0)

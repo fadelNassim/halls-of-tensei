@@ -1,0 +1,154 @@
+{
+  "demons": [
+    {
+      "id": "oni_yokai",
+      "name": "Oni",
+      "alignment": "chaos",
+      "mythology": "japanese",
+      "rank": 2,
+      "base_stats": { "hp": 120, "atk": 24, "def": 12, "spd": 10 },
+      "skills": ["club_smash", "roar"],
+      "recruit_rules": {
+        "base_chance": 0.45,
+        "requires_item": null,
+        "alignment_bias": -0.25
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "kitsune_spirit",
+      "name": "Kitsune",
+      "alignment": "neutral",
+      "mythology": "japanese",
+      "rank": 3,
+      "base_stats": { "hp": 90, "atk": 18, "def": 10, "spd": 16 },
+      "skills": ["fox_fire", "illusion_veil"],
+      "recruit_rules": {
+        "base_chance": 0.35,
+        "requires_item": null,
+        "alignment_bias": 0.1
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "valkyrie_law",
+      "name": "Valkyrie",
+      "alignment": "law",
+      "mythology": "norse",
+      "rank": 4,
+      "base_stats": { "hp": 150, "atk": 28, "def": 20, "spd": 12 },
+      "skills": ["spear_thrust", "divine_shield"],
+      "recruit_rules": {
+        "base_chance": 0.25,
+        "requires_item": null,
+        "alignment_bias": 0.3
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "succubus_chaos",
+      "name": "Succubus",
+      "alignment": "chaos",
+      "mythology": "abrahamic",
+      "rank": 3,
+      "base_stats": { "hp": 100, "atk": 22, "def": 8, "spd": 18 },
+      "skills": ["allure", "life_drain"],
+      "recruit_rules": {
+        "base_chance": 0.40,
+        "requires_item": null,
+        "alignment_bias": -0.2
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "anubis_guide",
+      "name": "Anubis",
+      "alignment": "law",
+      "mythology": "egyptian",
+      "rank": 5,
+      "base_stats": { "hp": 180, "atk": 32, "def": 25, "spd": 11 },
+      "skills": ["judgement_scales", "death_touch"],
+      "recruit_rules": {
+        "base_chance": 0.15,
+        "requires_item": "soul_offering",
+        "alignment_bias": 0.4
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "tengu_warrior",
+      "name": "Tengu",
+      "alignment": "neutral",
+      "mythology": "japanese",
+      "rank": 2,
+      "base_stats": { "hp": 100, "atk": 20, "def": 14, "spd": 14 },
+      "skills": ["gale_slash", "feather_storm"],
+      "recruit_rules": {
+        "base_chance": 0.50,
+        "requires_item": null,
+        "alignment_bias": 0.05
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "cerberus_guardian",
+      "name": "Cerberus",
+      "alignment": "chaos",
+      "mythology": "greek",
+      "rank": 4,
+      "base_stats": { "hp": 200, "atk": 30, "def": 18, "spd": 13 },
+      "skills": ["triple_bite", "hellfire_breath"],
+      "recruit_rules": {
+        "base_chance": 0.20,
+        "requires_item": "bone_offering",
+        "alignment_bias": -0.15
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "banshee_wail",
+      "name": "Banshee",
+      "alignment": "chaos",
+      "mythology": "celtic",
+      "rank": 1,
+      "base_stats": { "hp": 60, "atk": 14, "def": 6, "spd": 12 },
+      "skills": ["wail", "phase_step"],
+      "recruit_rules": {
+        "base_chance": 0.60,
+        "requires_item": null,
+        "alignment_bias": -0.1
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "angel_guardian",
+      "name": "Guardian Angel",
+      "alignment": "law",
+      "mythology": "abrahamic",
+      "rank": 3,
+      "base_stats": { "hp": 130, "atk": 20, "def": 22, "spd": 10 },
+      "skills": ["holy_strike", "barrier_light"],
+      "recruit_rules": {
+        "base_chance": 0.30,
+        "requires_item": null,
+        "alignment_bias": 0.35
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    },
+    {
+      "id": "naga_serpent",
+      "name": "Naga",
+      "alignment": "neutral",
+      "mythology": "hindu",
+      "rank": 2,
+      "base_stats": { "hp": 110, "atk": 19, "def": 11, "spd": 15 },
+      "skills": ["venom_bite", "coil_crush"],
+      "recruit_rules": {
+        "base_chance": 0.45,
+        "requires_item": null,
+        "alignment_bias": 0.0
+      },
+      "flags": { "boss": false, "recruitable_in_run": true, "immutable": false }
+    }
+  ]
+}
